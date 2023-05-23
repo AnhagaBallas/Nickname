@@ -19,6 +19,12 @@ public class Main {
                     if (texts[i].length() == 3) {
                         count1.getAndIncrement();
                     }
+                    if (texts[i].length() == 4) {
+                        count2.getAndIncrement();
+                    }
+                    if (texts[i].length() == 5) {
+                        count3.getAndIncrement();
+                    }
 
                 }
             }
@@ -26,8 +32,14 @@ public class Main {
         Thread thread2 = new Thread(() -> {
             for (int i = 0; i < texts.length; i++) {
                 if (checkChar(texts[i])) {
+                    if (texts[i].length() == 3) {
+                        count1.getAndIncrement();
+                    }
                     if (texts[i].length() == 4) {
                         count2.getAndIncrement();
+                    }
+                    if (texts[i].length() == 5) {
+                        count3.getAndIncrement();
                     }
                 }
 
@@ -36,6 +48,12 @@ public class Main {
         Thread thread3 = new Thread(() -> {
             for (int i = 0; i < texts.length; i++) {
                 if (isAlphabaticOrder(texts[i])) {
+                    if (texts[i].length() == 3) {
+                        count1.getAndIncrement();
+                    }
+                    if (texts[i].length() == 4) {
+                        count2.getAndIncrement();
+                    }
                     if (texts[i].length() == 5) {
                         count3.getAndIncrement();
                     }
@@ -106,5 +124,6 @@ public class Main {
         return true;
     }
 }
+
 
 
