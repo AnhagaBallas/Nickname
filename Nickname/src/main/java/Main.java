@@ -15,14 +15,9 @@ public class Main {
         }
         Thread thread1 = new Thread(() -> {
             for (int i = 0; i < texts.length; i++) {
-                if (texts[i].length() == 3) {
-                    if (texts[i].equals(reverse(texts[i]))) {
-                        if (checkChar(texts[i])) {
-                            if (isAlphabaticOrder(texts[i])) {
-                                count1.getAndIncrement();
-                            }
-
-                        }
+                if (texts[i].equals(reverse(texts[i]))) {
+                    if (texts[i].length() == 3) {
+                        count1.getAndIncrement();
                     }
 
                 }
@@ -30,33 +25,24 @@ public class Main {
         });
         Thread thread2 = new Thread(() -> {
             for (int i = 0; i < texts.length; i++) {
-                if (texts[i].length() == 4) {
-                    if (texts[i].equals(reverse(texts[i]))) {
-                        if (checkChar(texts[i])) {
-                            if (isAlphabaticOrder(texts[i])) {
-                                count2.getAndIncrement();
-                            }
-
-                        }
+                if (checkChar(texts[i])) {
+                    if (texts[i].length() == 4) {
+                        count2.getAndIncrement();
                     }
-
                 }
+
             }
         });
         Thread thread3 = new Thread(() -> {
             for (int i = 0; i < texts.length; i++) {
-                if (texts[i].length() == 5) {
-                    if (texts[i].equals(reverse(texts[i]))) {
-                        if (checkChar(texts[i])) {
-                            if (isAlphabaticOrder(texts[i])) {
-                                count3.getAndIncrement();
-                            }
-
-                        }
+                if (isAlphabaticOrder(texts[i])) {
+                    if (texts[i].length() == 5) {
+                        count3.getAndIncrement();
                     }
 
                 }
             }
+
         });
         thread1.start();
         thread2.start();
@@ -120,4 +106,5 @@ public class Main {
         return true;
     }
 }
+
 
